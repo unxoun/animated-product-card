@@ -17,6 +17,7 @@ import axios from "axios";
 // Components
 import Head from "next/head";
 import Product from "../../components/product";
+import Pagination from "../../components/pagination";
 
 export default function ProductPage() {
   //
@@ -68,6 +69,7 @@ export default function ProductPage() {
         <meta name="description" content={seoData?.pageDescription} />
       </Head>
       <Product productData={productData} />
+      <Pagination page={productID} route="products" />
     </>
   );
 }
