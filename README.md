@@ -1,4 +1,4 @@
-###### This is a [Next.js](https://nextjs.org/).
+###### This is a [Next.js](https://nextjs.org/) project.
 ###### Run "npm install" and "npm run dev" or "yarn dev".
 
 ###### Features
