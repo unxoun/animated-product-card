@@ -2,7 +2,7 @@
 
 ###### About the project
 - ## Responsive
-- ## Handles 404 Errors.
+- ## Handles null responses.
 - ## I wrote functions to implement some animation effects.
 - ## Uses Material UI, Axios, React Context and Emotion CSS in JS.
 - ## Pagination
