@@ -3,7 +3,7 @@
 //==========================================================
 //==========================================================
 //==========================================================
-// I wrote this just to be more fun.
+// I wrote this just to add some fantacy to the project.
 // It just adds and removes some CSS classes sequentially.
 // "fx"s are defined in "styles/globals.css".
 //==========================================================
