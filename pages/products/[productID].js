@@ -16,8 +16,8 @@ import axios from "axios";
 
 // Components
 import Head from "next/head";
-import Product from "../../components/product";
 import Pagination from "../../components/pagination";
+import Product from "../../components/product";
 import ProgressIndicator from "../../components/progress-indicator";
 
 export default function ProductPage() {
