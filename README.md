@@ -1,5 +1,4 @@
-###### This is a [Next.js](https://nextjs.org/) project.
-###### Run "npm install" and "npm run dev" or "yarn dev".
+###### This is a [Next.js](https://nextjs.org/) project. Run "npm install" and "npm run dev" or "yarn dev".
 
 ###### About the project
 - ## Responsive
