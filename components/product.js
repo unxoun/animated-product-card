@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useContext } from "react";
+import { isMobileContext } from "../contexts/is-mobile";
 
 // Components
 import Rating from "@mui/material/Rating";
@@ -73,15 +74,65 @@ const Main = styled.section`
       margin-top: 40px;
     }
   }
+  // ====================================
+  // Mobile Version:
+  // ------------------------------------
+  &.is-mobile {
+    margin: 0 10px 50px 10px;
+    .poster {
+      width: 100%;
+      padding-bottom: 30px;
+    }
+    .main {
+      width: 100%;
+      padding: 0 15px 40px;
+      header {
+        flex-wrap: wrap;
+        .main-info {
+          width: 100%;
+          padding-right: 0;
+          order: 2;
+        }
+        .details {
+          display: flex;
+          flex-direction: row;
+          align-items: flex-end;
+          margin-bottom: 18px;
+          .rate {
+            margin-bottom: 0;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+    footer {
+      .MuiButton-root {
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+    }
+  }
 `;
 
 export default function Product({ productData }) {
   //
 
+  // Rather than writing CSS media queries or using grid-
+  // components, I tried the following pattern to handle the-
+  // layout responsiveness:
+  // Subscribe to "isMobileContext".
+  // "isMobileContext" gets updated in the "pages/_app.js", on-
+  // screen size change.
+  // Here, I use "isMobile" boolean to add/remove the-
+  // "is-mobile" CSS class to handle the component's-
+  // responsiveness.
+  const [isMobile] = useContext(isMobileContext);
+
   if (!productData) return <div className="null" />;
 
   return (
-    <Main>
+    <Main className={`${isMobile ? "is-mobile" : ""} box`}>
       <div className="poster">
         <img src={productData.image} />
       </div>
