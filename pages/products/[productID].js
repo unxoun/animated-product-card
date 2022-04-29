@@ -18,6 +18,7 @@ import axios from "axios";
 import Head from "next/head";
 import Product from "../../components/product";
 import Pagination from "../../components/pagination";
+import ProgressIndicator from "../../components/progress-indicator";
 
 export default function ProductPage() {
   //
@@ -28,6 +29,11 @@ export default function ProductPage() {
 
   //
   const [productData, setProductData] = useState(null);
+
+  // to show some "Loading..." while the data is being fetched:
+  // (long name!)
+  const [progressIndicatorVisibility, setProgressIndicatorVisibility] =
+    useState(true);
 
   //
   const [seoData, setSEOData] = useState(null);
@@ -45,12 +51,14 @@ export default function ProductPage() {
         // Handle null responses:
         router.push("/not-found");
       }
+      setProgressIndicatorVisibility(false);
     }
   };
 
   useEffect(() => {
     let ignore = false;
     if (productID) {
+      setProgressIndicatorVisibility(true);
       fetchData(productID, ignore);
     }
     return () => {
@@ -68,6 +76,10 @@ export default function ProductPage() {
         <title>{seoData?.pageTitle}</title>
         <meta name="description" content={seoData?.pageDescription} />
       </Head>
+      <ProgressIndicator
+        visibility={progressIndicatorVisibility}
+        message="It is being loaded... .. ."
+      />
       <Product productData={productData} />
       <Pagination page={productID} route="products" />
     </>
