@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { useEffect, useRef, useContext } from "react";
 import { isMobileContext } from "../contexts/is-mobile";
+import { animate } from "../tools/animate";
 
 // Components
 import Rating from "@mui/material/Rating";
@@ -129,6 +130,18 @@ export default function Product({ productData }) {
   // responsiveness.
   const [isMobile] = useContext(isMobileContext);
 
+  // =================================================================
+  // Animations - start
+  // I just added this to be more fun. You can ignore this part!
+  const $header = useRef(null);
+  const $description = useRef(null);
+  const $footer = useRef(null);
+  useEffect(() => {
+    animate([$header, $description, $footer], "fx-1", 250);
+  }, [productData]);
+  // Animations - end
+  // -----------------------------------------------------------------
+
   if (!productData) return <div className="null" />;
 
   return (
@@ -137,7 +150,7 @@ export default function Product({ productData }) {
         <img src={productData.image} />
       </div>
       <div className="main">
-        <header>
+        <header ref={$header}>
           <div className="main-info">
             <h2>{productData.title}</h2>
             <h3>{productData.category}</h3>
@@ -158,11 +171,11 @@ export default function Product({ productData }) {
             </div>
           </div>
         </header>
-        <div className="description">
+        <div className="description" ref={$description}>
           <div className="title">description</div>
           <p>{productData.description}</p>
         </div>
-        <footer>
+        <footer ref={$footer}>
           <FancyButton startIcon={<ShoppingCartIcon />}>
             add to cart
           </FancyButton>
