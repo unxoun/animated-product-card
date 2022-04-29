@@ -2,7 +2,7 @@
 
 ###### About the project
 - ## Responsive
-- ## Handles null responses.
+- ## Handles null responses with Not Found Page.
 - ## I wrote functions to implement some animation effects.
 - ## Uses Material UI, Axios, React Context and Emotion CSS in JS.
 - ## Pagination
