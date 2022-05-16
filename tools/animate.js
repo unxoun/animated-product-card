@@ -13,9 +13,10 @@ export function animate($elements, fx, intervalsDuration) {
   for (const $element of $elements) {
     $element.current?.classList?.add(fx + "-pre");
   }
+  
+  applyFX($elements[0], fx);
 
   let i = 1;
-  applyFX($elements[0], fx);
   const interval = setInterval(() => {
     if (i < $elements.length) {
       applyFX($elements[i], fx);
